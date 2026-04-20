@@ -1,0 +1,21 @@
+{
+  "model_type": "random_forest",
+  "accuracy": 0.7662337662337663,
+  "f1": 0.6326530612244898,
+  "roc_auc": 0.8124074074074074,
+  "precision": 0.7045454545454546,
+  "recall": 0.5740740740740741,
+  "target_column": "class",
+  "train_size": 614,
+  "test_size": 154,
+  "feature_columns": [
+    "preg",
+    "plas",
+    "pres",
+    "skin",
+    "insu",
+    "mass",
+    "pedi",
+    "age"
+  ]
+}
