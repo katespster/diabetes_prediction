@@ -1,0 +1,21 @@
+{
+  "model_type": "logistic_regression",
+  "accuracy": 0.7077922077922078,
+  "f1": 0.5454545454545454,
+  "roc_auc": 0.812962962962963,
+  "precision": 0.6,
+  "recall": 0.5,
+  "target_column": "class",
+  "train_size": 614,
+  "test_size": 154,
+  "feature_columns": [
+    "preg",
+    "plas",
+    "pres",
+    "skin",
+    "insu",
+    "mass",
+    "pedi",
+    "age"
+  ]
+}

@@ -1,0 +1,40 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# PyCharm / JetBrains
+.idea/
+
+# Test / lint / type-check caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+
+# Logs
+*.log
+
+# Environment variables / secrets
+.env
+
+# MLflow
+mlruns/
+
+# Model artifacts
+artifacts/
+
+
+# Generated reports
+reports/*.html
+reports/*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
