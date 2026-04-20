@@ -6,8 +6,11 @@ from typing import Any
 import joblib
 import pandas as pd
 
-from src.preprocess import payload_to_dataframe, prepare_inference_data
-
+from src.preprocess import (
+    payload_to_dataframe,
+    prepare_inference_data,
+    validate_and_align_features,
+)
 
 MODEL_PATH = Path("models/model.pkl")
 
@@ -35,25 +38,6 @@ def get_model_feature_names(model) -> list[str]:
         "Make sure it was trained on a pandas DataFrame."
     )
 
-
-def validate_and_align_features(
-    df: pd.DataFrame,
-    expected_columns: list[str],
-) -> pd.DataFrame:
-    """
-    1. Проверяет неожиданные колонки
-    2. Добавляет отсутствующие ожидаемые колонки как NaN
-    3. Выставляет правильный порядок колонок
-    """
-    unexpected_columns = sorted(set(df.columns) - set(expected_columns))
-    if unexpected_columns:
-        raise ValueError(
-            f"Unexpected columns in input: {unexpected_columns}. "
-            f"Expected only: {expected_columns}"
-        )
-
-    aligned_df = df.reindex(columns=expected_columns)
-    return aligned_df
 
 
 def make_inference_frame(

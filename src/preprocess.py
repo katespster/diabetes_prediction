@@ -174,6 +174,24 @@ def prepare_inference_data(
     """
     return replace_invalid_zeros_with_nan(df, target_col=None, verbose=verbose)
 
+def validate_and_align_features(
+    df: pd.DataFrame,
+    expected_columns: list[str],
+) -> pd.DataFrame:
+    """
+    1. Проверяет неожиданные колонки
+    2. Добавляет отсутствующие ожидаемые колонки как NaN
+    3. Выставляет правильный порядок колонок
+    """
+    unexpected_columns = sorted(set(df.columns) - set(expected_columns))
+    if unexpected_columns:
+        raise ValueError(
+            f"Unexpected columns in input: {unexpected_columns}. "
+            f"Expected only: {expected_columns}"
+        )
+
+    aligned_df = df.reindex(columns=expected_columns)
+    return aligned_df
 
 def payload_to_dataframe(payload: dict[str, Any] | list[dict[str, Any]]) -> pd.DataFrame:
     """
