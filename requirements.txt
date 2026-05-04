@@ -10,4 +10,5 @@ pytest
 httpx
 mlflow
 ruff
+allure-pytest
 
