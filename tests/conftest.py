@@ -3,6 +3,16 @@ from pathlib import Path
 import platform
 import sys
 
+import pytest
+from fastapi.testclient import TestClient
+
+from app.main import app
+
+
+@pytest.fixture
+def client():
+    return TestClient(app)
+
 
 def _package_version(package_name: str) -> str:
     try:
